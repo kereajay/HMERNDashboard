@@ -58,8 +58,8 @@ function App() {
         <BrowserRouter>
           <Sidebar />
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/Dashboard" element={<Login />} />
             <Route path="/AddnewAdmin" element={<AddnewAdmin />} />
             <Route path="/AddnewDoctor" element={<AddnewDoctor />} />
             <Route path="/Doctors" element={<Doctors />} />
