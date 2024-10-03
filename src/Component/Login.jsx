@@ -40,7 +40,7 @@ function Login() {
         autoClose: 1200,
       });
       setIsAuthenticated(true);
-      navigate("/");
+      navigate("/Dashboard");
     } else {
       toast.error(data.message, {
         autoClose: 1200,

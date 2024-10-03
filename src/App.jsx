@@ -59,7 +59,7 @@ function App() {
           <Sidebar />
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/Dashboard" element={<Login />} />
+            <Route path="/Dashboard" element={<Dashboard />} />
             <Route path="/AddnewAdmin" element={<AddnewAdmin />} />
             <Route path="/AddnewDoctor" element={<AddnewDoctor />} />
             <Route path="/Doctors" element={<Doctors />} />
