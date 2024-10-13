@@ -76,7 +76,7 @@ function Login() {
         </div>
 
         {/* Form Section */}
-        <div className="w-full md:w-1/2 max-w-lg mx-auto p-6 md:p-10 shadow-lg bg-white rounded-xl">
+        <div className="w-full md:w-1/2 max-w-lg mx-auto p-6 md:p-10  bg-white rounded-xl shadow-[0px_20px_50px_50px_#e6fffa]">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label

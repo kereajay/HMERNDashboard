@@ -47,7 +47,7 @@ function AddnewAdmin() {
   };
 
   return (
-    <div className='w-full md:w-[85%] lg:w-[75%] mx-auto mt-10 mb-5 shadow-lg rounded-2xl bg-white p-6'>
+    <div className='w-full md:w-[85%] lg:w-[75%] mx-auto mt-10 mb-5 shadow-xl rounded-2xl  p-6 '>
       <h1 className='text-3xl font-bold text-gray-600 text-center'>Admin Signup</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
         <div>
@@ -57,9 +57,9 @@ function AddnewAdmin() {
             className="w-full h-auto object-cover rounded-lg "
           />
         </div>
-        <div>
+        <div className=''>
           <form onSubmit={handleAddnewAdmin} className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:space-x-4">
+            <div className="flex flex-col sm:flex-row sm:space-x-4 ">
               <div className="flex-1">
                 <label htmlFor="firstName" className="block text-xl font-medium text-gray-700">First Name</label>
                 <input
