@@ -35,7 +35,7 @@ function App() {
           }
         );
         const data = await res.json();
-        // console.log(data);
+        console.log(data);
         if (data.success == true) {
           // console.log("isa")
           setIsAuthenticated(true);
@@ -54,9 +54,13 @@ function App() {
 
   return (
     <>
-      <div className="flex shadow-[inset_50px_0px_50px_0px_#9ae6b4] ">
+      <div className="flex  h-screen shadow-[inset_50px_0px_50px_0px_#9ae6b4] ">
         <BrowserRouter>
-          <Sidebar />
+        <div className="h-full fixed left-0 top-0 ">
+
+          <Sidebar/>
+        </div>
+        <div className="ml-20  flex-1 overflow-auto h-screen p-4">
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/Dashboard" element={<Dashboard />} />
@@ -65,6 +69,7 @@ function App() {
             <Route path="/Doctors" element={<Doctors />} />
             <Route path="/Message" element={<Message />} />
           </Routes>
+          </div>
           <ToastContainer />
         </BrowserRouter>
       </div>

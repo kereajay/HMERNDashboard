@@ -37,7 +37,7 @@ function Sidebar() {
   return (
     <>
     {isAuthenticated&&
-    <div className='text-4xl     mt-44 px-4'>
+    <div className='text-4xl mt-44 px-4 '>
       <Link to={"/Dashboard"}><IoHome /></Link>
       <br />
       <Link to={"/Doctors"}><FaUserDoctor /></Link>
