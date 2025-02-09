@@ -47,8 +47,8 @@ function AddnewAdmin() {
   };
 
   return (
-    <div className='w-full md:w-[85%] lg:w-[75%] mx-auto mt-10 mb-5 shadow-xl rounded-2xl  p-6 '>
-      <h1 className='text-3xl font-bold text-gray-600 text-center'>Admin Signup</h1>
+    <div className='w-full md:w-[85%] lg:w-[75%] mx-auto mt-10 mb-5  rounded-2xl  p-6 shadow-[10px_10px_200px_100px_#9ae6b4]'>
+      <h1 className='text-3xl font-bold text-green-500 text-center'>Admin Signup</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
         <div>
           <img 

@@ -21,7 +21,6 @@ function Dashboard() {
     newDate.getTime() - newDate.getTimezoneOffset() * 60000
   );
 
-
   useEffect(() => {
     const fetchappointments = async () => {
       const res = await fetch(
@@ -101,7 +100,7 @@ function Dashboard() {
 
   const handleReSchedule = async () => {
     if (!selectedAppointment) return;
-    console.log(selectedAppointment)
+    console.log(selectedAppointment);
     try {
       const res = await axios.put(
         `https://hmernbackend.onrender.com/api/v1/Appointment/update/${selectedAppointment._id}`,
@@ -167,7 +166,7 @@ function Dashboard() {
       </Modal>
       {/* </div> */}
       {/* Dashboard Summary */}
-      <div className="flex flex-col md:flex-row gap-6 md:gap-10  p-5 mt-5 rounded-xl w-[95%] mx-auto shadow-[10px_10px_60px_0px_#c6f6d5]">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-10  p-5 mt-5 rounded-3xl w-[95%] mx-auto shadow-[10px_10px_60px_0px_#c6f6d5] ">
         {/* User Profile */}
         <div className="flex flex-col items-center md:flex-row shadow-md h-auto md:h-60 p-5 md:p-10">
           <img
@@ -211,32 +210,32 @@ function Dashboard() {
 
       {/* Appointment Table */}
       <br />
-      <div className="overflow-x-auto mt-8">
-        <table className="min-w-full divide-y divide-gray-200 shadow-sm">
-          <thead className="bg-gray-100">
+      <div className="overflow-x-auto mt-8   shadow-[10px_0px_200px_10px_#9ae6b4]">
+        <table className="min-w-full divide-y divide-gray-200  ">
+          <thead className="bg-gray-100 ">
             <tr>
-              <th className="px-4 py-3 text-left text-lg font-medium text-gray-500 uppercase">
+              <th className="px-4 py-3 text-left text-lg font-medium text-green-500 uppercase">
                 Patient
               </th>
-              <th className="px-4 py-3 text-left text-lg font-medium text-gray-500 uppercase">
+              <th className="px-4 py-3 text-left text-lg font-medium text-green-500 uppercase">
                 Date
               </th>
-              <th className="px-4 py-3 text-left text-lg font-medium text-gray-500 uppercase">
+              <th className="px-4 py-3 text-left text-lg font-medium text-green-500 uppercase">
                 Doctor
               </th>
-              <th className="px-4 py-3 text-left text-lg font-medium text-gray-500 uppercase">
+              <th className="px-4 py-3 text-left text-lg font-medium text-green-500 uppercase">
                 Department
               </th>
-              <th className="px-4 py-3 text-left text-lg font-medium text-gray-500 uppercase">
+              <th className="px-4 py-3 text-left text-lg font-medium text-green-500 uppercase">
                 Status
               </th>
-              <th className="px-4 py-3 text-left text-lg font-medium text-gray-500 uppercase">
+              <th className="px-4 py-3 text-left text-lg font-medium text-green-500 uppercase">
                 Visited
               </th>
-              <th className="px-4 py-3 text-left text-lg font-medium text-gray-500 uppercase">
+              <th className="px-4 py-3 text-left text-lg font-medium text-green-500 uppercase">
                 Delete
               </th>
-              <th className="px-4 py-3 text-left text-lg font-medium text-gray-500 uppercase">
+              <th className="px-4 py-3 text-left text-lg font-medium text-green-500 uppercase">
                 Reschedule
               </th>
             </tr>

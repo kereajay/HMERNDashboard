@@ -41,7 +41,6 @@ function Doctors() {
         />
       </div>
       <div className="shadow-lg w-[93%] m-auto mt-10 rounded-2xl p-4 mb-5 bg-white">
-        
         <br />
         <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8 px-4">
           {doctors && doctors.length > 0 ? (
@@ -52,16 +51,16 @@ function Doctors() {
               .map((doc) => (
                 <div
                   key={doc._id}
-                  className="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                  className="shadow-[inset_0px_0px_20px_10px_#9ae6b4] rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
                 >
-                  <div className="p-4 flex justify-center items-center bg-purple-300">
+                  <div className="p-4 flex justify-center items-center bg-green-200">
                     <img
                       src={doc.docAvatar?.url || "default-avatar.png"}
                       alt="docavatar"
                       className="w-[200px] h-[200px] rounded-full border-4 border-white shadow-md"
                     />
                   </div>
-                  <div className="p-6 text-center">
+                  <div className="p-6 text-center ">
                     <h3 className="text-xl font-semibold text-gray-800">
                       {doc.firstName} {doc.lastName}
                     </h3>
@@ -69,18 +68,22 @@ function Doctors() {
                       {doc.doctorDepartment}
                     </p>
                     <div className="border-t my-4"></div>
-                    <div className="text-sm text-left space-y-4">
+                    <div className="text-lg text-left space-y-4">
                       <p>
-                        <span className="font-semibold">Email:</span> {doc.email}
+                        <span className="font-semibold">Email:</span>{" "}
+                        {doc.email}
                       </p>
                       <p>
-                        <span className="font-semibold">Phone:</span> {doc.phone}
+                        <span className="font-semibold">Phone:</span>{" "}
+                        {doc.phone}
                       </p>
                       <p>
-                        <span className="font-semibold">DOB:</span> {doc.dob.substr(0, 10)}
+                        <span className="font-semibold">DOB:</span>{" "}
+                        {doc.dob.substr(0, 10)}
                       </p>
                       <p>
-                        <span className="font-semibold">Gender:</span> {doc.gender}
+                        <span className="font-semibold">Gender:</span>{" "}
+                        {doc.gender}
                       </p>
                       <p>
                         <span className="font-semibold">NIC:</span> {doc.nic}

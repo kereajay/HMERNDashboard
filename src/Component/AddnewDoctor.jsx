@@ -43,7 +43,7 @@ function AddnewDoctor() {
 
   const handleAddnewDoctor = async (e) => {
     e.preventDefault();
-  
+
     try {
       const formData = new FormData();
       // console.log(docAvatar)
@@ -60,38 +60,35 @@ function AddnewDoctor() {
       // for (const [key, value] of formData.entries()) {
       //   console.log(key, value);
       // }
-      
-      await axios.post(
-        "https://hmernbackend.onrender.com/api/v1/user/doctor/signup",
-        formData,
-        {
-          withCredentials: true, 
-          credentials: 'include',
-        }
-      )
-      .then((res)=>{
-        toast.success(res.data.message,{
-          autoClose:1400
+
+      await axios
+        .post(
+          "https://hmernbackend.onrender.com/api/v1/user/doctor/signup",
+          formData,
+          {
+            withCredentials: true,
+            credentials: "include",
+          }
+        )
+        .then((res) => {
+          toast.success(res.data.message, {
+            autoClose: 1400,
+          });
+          // console.log(res)
+          setIsAuthenticated(true);
+          navigate("/Dashboard");
+          setFirstName("");
+          setLastName("");
+          setEmail("");
+          setPhone("");
+          setNic("");
+          setDob("");
+          setGender("");
+          setPassword("");
         });
-        // console.log(res)
-        setIsAuthenticated(true);
-        navigate("/Dashboard");
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-        setPhone("");
-        setNic("");
-        setDob("");
-        setGender("");
-        setPassword("");
-      })
-      
-     
-      
     } catch (error) {
-      
-      toast.error(error.response.data.message,{
-        autoClose:1400
+      toast.error(error.response.data.message, {
+        autoClose: 1400,
       });
     }
   };
@@ -101,208 +98,209 @@ function AddnewDoctor() {
   // }
   return (
     <>
-      <div className="w-[93%] m-auto mt-10 mb-5 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] rounded-2xl">
-        <h1 className="text-2xl font-bold text-gray-500 text-center mt-10">
+      <div className="w-[93%] m-auto mt-10 mb-5 shadow-[10px_10px_200px_100px_#9ae6b4] rounded-2xl">
+        <h1 className="text-3xl font-bold text-green-500 text-center py-5">
           Add a Doctor
         </h1>
         <br />
         <div className="flex md:flex-row sm:flex-col">
-          
-        
-        <div className="">
-           <img src="https://i.pinimg.com/originals/36/02/fc/3602fc580ec2e5439d9e2588c4bd3544.gif" alt="" />
-        </div>
-        <div className="max-w-lg mx-auto p-4 ">
-          <form onSubmit={handleAddnewDoctor} className="space-y-4">
-            <div>
-              <label htmlFor="avatarInput">
-                <img
-                  src={
-                    docAvatarPreview ? `${docAvatarPreview}` : "/doctor.jpeg"
-                  }
-                  alt=""
-                  className="w-36 h-36 rounded-full cursor-pointer border-2 border-blue-300"
-                />
-              </label>
-              <input
-                type="file"
-                id="avatarInput"
-                className="hidden"
-                onChange={handleAvatar}
-              />
-            </div>
-
-            <div className="flex flex-col sm:flex-row sm:space-x-4">
-              <div className="flex-1">
-                <label
-                  htmlFor="firstName"
-                  className="block text-2xl font-medium text-gray-700"
-                >
-                  First Name
+          <div className="">
+            <img
+              src="https://i.pinimg.com/originals/36/02/fc/3602fc580ec2e5439d9e2588c4bd3544.gif"
+              alt=""
+            />
+          </div>
+          <div className="max-w-lg mx-auto p-4 ">
+            <form onSubmit={handleAddnewDoctor} className="space-y-4">
+              <div>
+                <label htmlFor="avatarInput">
+                  <img
+                    src={
+                      docAvatarPreview ? `${docAvatarPreview}` : "/doctor.jpeg"
+                    }
+                    alt=""
+                    className="w-36 h-36 rounded-full cursor-pointer border-2 border-blue-300"
+                  />
                 </label>
                 <input
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
+                  type="file"
+                  id="avatarInput"
+                  className="hidden"
+                  onChange={handleAvatar}
+                />
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:space-x-4">
+                <div className="flex-1">
+                  <label
+                    htmlFor="firstName"
+                    className="block text-2xl font-medium text-gray-700"
+                  >
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
+                    required
+                  />
+                </div>
+                <div className="flex-1">
+                  <label
+                    htmlFor="lastName"
+                    className="block text-2xl font-medium text-gray-700"
+                  >
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-2xl font-medium text-gray-700"
+                >
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
                   required
                 />
               </div>
-              <div className="flex-1">
+
+              <div>
                 <label
-                  htmlFor="lastName"
+                  htmlFor="email"
                   className="block text-2xl font-medium text-gray-700"
                 >
-                  Last Name
+                  Email
                 </label>
                 <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
+                  type="email"
+                  name="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
                   required
                 />
               </div>
-            </div>
 
-            <div>
-              <label
-                htmlFor="phone"
-                className="block text-2xl font-medium text-gray-700"
-              >
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                id="phone"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
-                required
-              />
-            </div>
+              <div>
+                <label
+                  htmlFor="nic"
+                  className="block text-2xl font-medium text-gray-700"
+                >
+                  NIC
+                </label>
+                <input
+                  type="tel"
+                  name="nic"
+                  id="nic"
+                  value={nic}
+                  onChange={(e) => setNic(e.target.value)}
+                  className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
+                  required
+                />
+              </div>
 
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-2xl font-medium text-gray-700"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
-                required
-              />
-            </div>
+              <div>
+                <label
+                  htmlFor="dob"
+                  className="block text-2xl font-medium text-gray-700"
+                >
+                  DOB
+                </label>
+                <input
+                  type="date"
+                  name="dob"
+                  id="dob"
+                  value={dob}
+                  onChange={(e) => setDob(e.target.value)}
+                  className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
+                  required
+                />
+              </div>
 
-            <div>
-              <label
-                htmlFor="nic"
-                className="block text-2xl font-medium text-gray-700"
-              >
-                NIC
-              </label>
-              <input
-                type="tel"
-                name="nic"
-                id="nic"
-                value={nic}
-                onChange={(e) => setNic(e.target.value)}
-                className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
-                required
-              />
-            </div>
+              <div>
+                <label
+                  htmlFor="gender"
+                  className="block text-2xl font-medium text-gray-700"
+                >
+                  Gender
+                </label>
+                <input
+                  type="text"
+                  name="gender"
+                  id="gender"
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                  className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
+                  required
+                />
+              </div>
 
-            <div>
-              <label
-                htmlFor="dob"
-                className="block text-2xl font-medium text-gray-700"
-              >
-                DOB
-              </label>
-              <input
-                type="date"
-                name="dob"
-                id="dob"
-                value={dob}
-                onChange={(e) => setDob(e.target.value)}
-                className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
-                required
-              />
-            </div>
+              <div>
+                <label
+                  htmlFor="password"
+                  className="block text-xl font-medium text-gray-700"
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
+                  required
+                />
+              </div>
 
-            <div>
-              <label
-                htmlFor="gender"
-                className="block text-2xl font-medium text-gray-700"
-              >
-                Gender
-              </label>
-              <input
-                type="text"
-                name="gender"
-                id="gender"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-                className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
-                required
-              />
-            </div>
+              <div>
+                <label
+                  htmlFor="department"
+                  className="block text-xl font-medium text-gray-700"
+                >
+                  Department
+                </label>
+                <select
+                  value={doctorDepartment}
+                  className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
+                  onChange={(e) => setDoctorDepartment(e.target.value)}
+                >
+                  <option value="">Select Department</option>
+                  {departmentsArray.map((item, index) => {
+                    return (
+                      <>
+                        <option value={item} key={index}>
+                          {item}
+                        </option>
+                      </>
+                    );
+                  })}
+                </select>
+              </div>
 
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-xl font-medium text-gray-700"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
-                required
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="department"
-                className="block text-xl font-medium text-gray-700"
-              >
-                Department
-              </label>
-              <select
-                value={doctorDepartment}
-                className="mt-1 p-3 block w-full border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-md"
-                onChange={(e) => setDoctorDepartment(e.target.value)}
-              >
-                <option value="">Select Department</option>
-                {departmentsArray.map((item, index) => {
-                  return (
-                    <>
-                      <option value={item} key={index}>
-                        {item}
-                      </option>
-                    </>
-                  );
-                })}
-              </select>
-            </div>
-
-            {/* <div>
+              {/* <div>
           <p>
              Registered /
             <Link to="/login" className="text-blue-400">
@@ -311,14 +309,14 @@ function AddnewDoctor() {
           </p>
         </div> */}
 
-            <button
-              type="submit"
-              className="w-full py-2 px-4 bg-indigo-600 text-white rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Add Doctor
-            </button>
-          </form>
-        </div>
+              <button
+                type="submit"
+                className="w-full py-2 px-4 bg-indigo-600 text-white rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Add Doctor
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </>
